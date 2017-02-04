@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="19">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Unlimited Adam/Ammo/Health Kits"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[enable]
+// Note: this affects both the player and enemies
+// Health (part 1)
+//10C50151:
+//nop
+//nop
+//nop
+//nop
+//nop
+//nop
+
+// Health (part 2)
+//10C50175:
+//nop
+//nop
+//nop
+//nop
+//nop
+//nop
+//nop
+//nop
+
+// Health Kits
+10C78996:
+nop
+nop
+nop
+
+// Adam (part 1)
+10C0D729:
+nop
+nop
+nop
+nop
+nop
+nop
+
+// Adam (part 2)
+10C0D74D:
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+
+// Ammo (Pistol, Machine Gun, etc.)
+10CDCB0C:
+nop
+nop
+
+// Money
+10C09A16:
+nop
+nop
+nop
+nop
+nop
+nop
+
+// ADAM (for purchasing upgrades)
+10C0D3E6:
+nop
+nop
+nop
+nop
+nop
+nop
+
+[disable]
+// Health (part 1)
+10C50151:
+fstp dword ptr [esi+00000540]
+
+// Health (part 2)
+10C50175:
+movss [esi+00000540],xmm1
+
+// Health Kits
+10C78996:
+sub [eax+4C],ecx
+
+// Adam (part 1)
+10C0D729:
+fstp dword ptr [esi+00000AB4]
+
+// Adam (part 2)
+10C0D74D:
+movss [esi+00000AB4],xmm0
+
+// Ammo (Pistol, Machine Gun, etc.)
+10CDCB0C:
+sub [edi],eax
+
+// Money
+10C09A16:
+sub [esi+00000AA8],ebx
+
+// ADAM (for purchasing upgrades)
+10C0D3E6:
+sub [esi+00000AB0],ebx
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>17</Key>
+            <Key>119</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <DisassemblerComments>
+    <DisassemblerComment>
+      <Address>"bioshock.exe"+411940</Address>
+      <Comment>mov [esi+000000A4],edi
+</Comment>
+    </DisassemblerComment>
+    <DisassemblerComment>
+      <Address>17ED0D5B</Address>
+      <Comment>mov [rax+50],ecx
+</Comment>
+    </DisassemblerComment>
+  </DisassemblerComments>
+</CheatTable>
